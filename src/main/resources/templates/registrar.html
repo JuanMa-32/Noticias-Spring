@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head"></head>
+<body class=" bg-success p-2 text-secondary bg-opacity-50">
+    <form class=" bg-success p-2 text-secondary bg-opacity-25" th:action="@{/registrado}" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre">
+         
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Repetir Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+          </div>
+       
+        <button type="submit" class="btn btn-primary">enviar</button>
+      </form>
+   
+      <footer th:include="/fragments/footer :: footer"></footer>
+</body>
+</html>

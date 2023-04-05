@@ -1,0 +1,22 @@
+<div th:fragment="tarjetas">
+  <main class="container bg-success p-2 text-secondary bg-opacity-25" >
+    <div class="row mb-2" >
+      <div class="col-md-6" th:each="noticia:${noticias}">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0" th:text="${noticia.titulo}"></h3>
+            <div class="mb-1 text-body-secondary">Mar 30</div>
+            <nav class="blog-pagination" aria-label="Pagination"> 
+            <a th:if="${session.usuariosession !=null}"  th:href="@{/ver/__${noticia.id}__}" class="btn btn-outline-primary rounded-pill" >Seguir leyendo...</a>
+            <a class="btn btn-outline-primary rounded-pill" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_PERIODISTA')" th:href="@{/noticia/editar/__${noticia.id}__}">Editar</a>
+            <a class="btn btn-outline-primary rounded-pill" sec:authorize="hasRole('ADMIN')" th:href="@{/admin/eliminar/__${noticia.id}__}">Eliminar</a>
+            </nav>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img th:src="@{/imagen/{img} (img=${noticia.foto})}">
+          </div>
+        </div>
+      </div>
+  </main>
+</div>

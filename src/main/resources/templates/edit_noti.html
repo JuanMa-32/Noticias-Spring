@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head"></head>
+<body  class=" bg-success p-2 text-secondary bg-opacity-50">
+    <div class="container">
+        <header class="blog-header lh-1 py-3  " id="inicio">
+            
+          <div class="row flex-nowrap justify-content-between align-items-center">
+          
+            <div class="col-4 text-center">
+              <h3>Diario Noti</h3>
+            </div>
+            
+        </div>
+        </header>
+    </div> 
+    
+    <form class=" bg-success p-2 text-secondary bg-opacity-25" th:action="@{/noticia/editado}" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+         <input hidden name="id" th:value="${noticia.id}">
+          <label for="exampleInputEmail1" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="titulo" th:value="${noticia.titulo}">
+
+          <label for="exampleInputEmail1" class="form-label">Cuerpo</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="cuerpo" th:value="${noticia.cuerpo}">
+         
+          <label for="exampleInputEmail1" class="form-label">Imagen</label>
+          <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="foto" th:value="${noticia.foto}">
+        </div>
+        <button type="submit" class="btn btn-info">Editar</button>
+        
+    </form>    
+
+
+
+
+    <footer th:include="/fragments/footer :: footer"></footer>
+</body>
+</html>

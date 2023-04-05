@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="/fragments/head :: head" ></head>
+<body class=" bg-success p-2 text-secondary bg-opacity-50">
+    <div class="container">
+        <header class="blog-header lh-1 py-3  " id="inicio">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+              
+              <a class="btn btn-light stretched-link" th:href="@{/}">Inicio</a>
+            </div>
+            <div class="col-4 text-center">
+              <h3>Diario Noti</h3>
+            </div>
+           
+          </div>
+        </header>
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+          <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic" th:text="${noticia.titulo}"></h1>
+            <p class="lead my-3" th:text="${noticia.cuerpo}"></p>
+            <div >
+              <img th:src="@{/imagen/{img} (img=${noticia.foto})}">
+            </div>
+          </div>
+        </div>
+        
+    </main>
+        <footer th:include="/fragments/footer :: footer"></footer>
+</body>
+</html>

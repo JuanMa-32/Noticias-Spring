@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head"></head>
+<body>
+    <div th:if="${noticias.size}">
+        <div th:replace="/fragments/tarjetas :: tarjetas">
+
+        </div>
+
+    </div>
+
+    <div th:unless="${noticias.size}">
+        <h3>NO SE ENCONTRARON RESULTADOS</h3>
+
+    </div>
+    
+
+    <footer th:replace="/fragments/footer :: footer"></footer>
+</body>
+</html>
